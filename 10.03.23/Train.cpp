@@ -52,12 +52,7 @@ void writeAnswer(trainType *res, int ct) {
              endl <<
              res[c].trainNumber <<
              endl <<
-             res[c].date.year <<
-             endl <<
-             res[c].date.month <<
-             endl <<
-             res[c].date.day <<
-             endl;
+             res[c].date.year << "." << res[c].date.month << "." << res[c].date.day << endl;
     }
     file.close();
 }

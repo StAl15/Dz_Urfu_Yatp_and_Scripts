@@ -50,16 +50,18 @@ public:
                 } else if (int(x1) < int(x2)) break;
             }
         } else {
-            if (train.date.year >= train_.date.year) {
-                if (train.date.month >= train_.date.month) {
-                    if (train.date.day >= train_.date.day) {
-                        trainType tmpIdx = res[idx2];
-                        res[idx2] = res[idx1];
-                        res[idx1] = tmpIdx;
-                    }
-                }
+            if (train.date.year < train_.date.year ||
+                (train.date.year == train_.date.year && train.date.month < train_.date.month) ||
+                (train.date.year == train_.date.year && train.date.month == train_.date.month &&
+                 train.date.day < train_.date.day)) {
+                trainType tmpIdx = res[idx2];
+                res[idx2] = res[idx1];
+                res[idx1] = tmpIdx;
             }
+
+
         }
+
     }
 
 private:
