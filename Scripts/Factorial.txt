@@ -1,0 +1,17 @@
+int a 210
+int b 1
+< a 0
+goto 13
+= a 0
+goto 15
+> a 32
+goto 13
+> a 0
+* b a
+- a 1
+goto 3
+print error
+goto 17
+print b
+goto 17
+end

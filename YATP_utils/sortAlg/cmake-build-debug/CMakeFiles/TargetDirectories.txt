@@ -1,0 +1,3 @@
+/Users/rgthardkor/Projects/Homework/YATP_utils/sortAlg/cmake-build-debug/CMakeFiles/sortAlg.dir
+/Users/rgthardkor/Projects/Homework/YATP_utils/sortAlg/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/rgthardkor/Projects/Homework/YATP_utils/sortAlg/cmake-build-debug/CMakeFiles/rebuild_cache.dir
