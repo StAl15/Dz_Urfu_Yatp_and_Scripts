@@ -46,13 +46,7 @@ bool Mnogoug::isVipucl() {
     int cm = 0;
 //    cout << "--------is Vypicl--------" << endl;
     for (int i = 0; i < countN; i++) {
-        int idx = i;
-        if (i == 0) {
-            idx = countN;
-        }
-        if (i == countN - 1) {
-            idx = -1;
-        }
+
         Point ab = {
                 points[i].x - points[i - 1].x,
                 points[i].y - points[i - 1].y
