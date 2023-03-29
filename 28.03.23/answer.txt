@@ -1,0 +1,4 @@
+n = hello cr = 2
+n = my cr = 1
+n = world cr = 1
+n = ko cr = 0
