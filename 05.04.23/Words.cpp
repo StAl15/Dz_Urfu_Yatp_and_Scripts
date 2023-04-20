@@ -36,9 +36,7 @@ LinkedList splitSentences(string &text) {
         if (!isZnak(i)) {
             sentence += i;
         } else {
-            cout << sentence << endl;
             sentences.append(sentence + ".");
-//            sentence = "";
             sentence.clear();
         }
     }
@@ -48,18 +46,17 @@ LinkedList splitSentences(string &text) {
 LinkedList splitWords(LinkedList &sentences) {
     LinkedList words;
     string word = "";
-    for (Node *ptr = sentences.getHead(); ptr != NULL && ptr->data!=" ."; ptr = ptr->next) {
+    for (Node *ptr = sentences.getHead(); ptr != NULL && ptr->data != " ."; ptr = ptr->next) {
         string currentSentence = ptr->data;
-        cout << "cs: " << currentSentence << endl;
         for (const auto i: currentSentence) {
             if (isLetterOrApp(i)) {
                 word += i;
             } else {
                 words.append(StringToLowerCase(word));
-                cout << word << endl;
                 word = "";
             }
         }
+        words.append(".");
     }
     return words;
 }

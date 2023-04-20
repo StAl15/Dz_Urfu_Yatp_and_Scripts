@@ -44,6 +44,12 @@ public:
         return head == nullptr;
     }
 
+    void print() {
+        for (Node *ptr = head; ptr->next != NULL; ptr = ptr->next) {
+            cout << ptr->data << endl;
+        }
+    }
+
 private:
     Node *tail;
     Node *head;

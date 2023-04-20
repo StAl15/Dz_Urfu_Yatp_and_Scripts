@@ -8,8 +8,8 @@ int main() {
     LinkedList words;
     openFile(file, "text.txt");
     readFile(file, text);
-    cout << text << endl;
     sentences = splitSentences(text);
+    sentences.print();
     words = splitWords(sentences);
     writeAnswer(words);
     cout << "all fine" << endl;
