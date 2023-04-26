@@ -41,8 +41,8 @@ int main() {
     LinkedList r;
 //    r = testArr + testArr1;
 //    r = testArr - testArr1;
-//    r = testArr * 2;
-    r = testArr * testArr1;
+    r = testArr * 2;
+//    r = testArr * testArr1;
     r.print();
 
     return 0;
