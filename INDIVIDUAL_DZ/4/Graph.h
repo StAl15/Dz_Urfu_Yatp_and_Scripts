@@ -26,7 +26,7 @@ public:
         }
     }
 
-    // Добавление ребра
+    // Добавление ребра (начало - конец)
     void addEdge(int v1, int v2, int e) {
         incidenceMatrix[v1][e] = 1;
         incidenceMatrix[v2][e] = 1;
@@ -78,7 +78,7 @@ public:
         visited[start] = true;
         q.push(start);
 
-//        std::pair<int, int>* treeEdges = new std::pair<int, int>[V - 1]; // Список ребер дерева поиска
+        // Список ребер дерева поиска
         LinkedList treeEdges;
 
 
