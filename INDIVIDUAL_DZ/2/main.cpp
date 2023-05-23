@@ -7,10 +7,13 @@ private:
     char *str;
     int length;
 public:
+
+    //создаем пустую строку
     MyString() : str(new char[1]), length(0) {
         str[0] = '\0';
     }
 
+    //создаем новую строку
     MyString(const char *s) : length(0) {
         while (s[length] != '\0') {
             ++length;
@@ -21,6 +24,7 @@ public:
         }
     }
 
+    //конструктор коипрования (копия строки str с сохранением длины)
     MyString(const MyString &other) : length(other.length), str(new char[length + 1]) {
         for (int i = 0; i <= length; ++i) {
             str[i] = other.str[i];
@@ -31,11 +35,11 @@ public:
         delete[] str;
     }
 
-    int getLength() const {
+    int getLength() {
         return length;
     }
 
-    const char *getStr() const {
+    const char *getStr() {
         return str;
     }
 
