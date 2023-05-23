@@ -113,34 +113,3 @@ public:
         return treeEdges;
     }
 };
-
-void fileOpen(string fileName, ifstream &f) {
-    f.open(fileName);
-}
-
-Graph readFile(ifstream &f) {
-    while (!f.eof()) {
-        int V, E;
-        f >> V;
-        f >> E;
-        Graph g(V, E);
-        int v1, v2, e;
-        for (int i = 0; i < V; i++) {
-            for (int j = 0; j < E; j++) {
-                f >> e;
-                if (e == 1) {
-                    if (v1 == 0) {
-                        v1 = i + 1;
-                    } else {
-                        v2 = i + 1;
-                        g.addEdge(v1, v2, j + 1);
-                        v1 = 0;
-                    }
-                }
-            }
-        }
-
-        f.close();
-        return g;
-    }
-}
