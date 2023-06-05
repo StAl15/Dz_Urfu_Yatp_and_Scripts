@@ -6,7 +6,8 @@ using namespace std;
 int digits(int x) {
     int d = 0;
     while (x > 0) {
-        d |= 1 << (x % 10);
+//        d |= 1 << (x % 10);
+        d |= (1 << (x % 10));
         x /= 10;
     }
     return d;

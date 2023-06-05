@@ -20,27 +20,50 @@ double func(int func_num, double x) {
 
 // Функция для вычисления интеграла на заданном отрезке с заданной точностью методом правых прямоугольников
 double right_rectangles(double a, double b, double h, int func_num) {
+//    double I = 0;
+//    for (double x = a; x < b; x += h) {
+//        I += func(func_num, x + h / 2) * h;
+//    }
+//    return I;
+
     double I = 0;
-    for (double x = a; x < b; x += h) {
-        I += func(func_num, x + h / 2) * h;
+    double x = a;
+    while (x + h <= b) {
+        I += func(func_num, x + h) * h;
+        x += h;
     }
     return I;
 }
 
 // Функция для вычисления интеграла на заданном отрезке с заданной точностью методом трапеций
 double trapezoids(double a, double b, double h, int func_num) {
+//    double I = 0;
+//    for (double x = a; x < b; x += h) {
+//        I += (func(func_num, x) + func(func_num, x + h)) * h / 2;
+//    }
+//    return I;
+
     double I = 0;
-    for (double x = a; x < b; x += h) {
+    double x = a;
+    while (x + h <= b) {
         I += (func(func_num, x) + func(func_num, x + h)) * h / 2;
+        x += h;
     }
     return I;
 }
 
 // Функция для вычисления интеграла на заданном отрезке с заданной точностью методом Симпсона
 double simpson(double a, double b, double h, int func_num) {
+//    double I = 0;
+//    for (double x = a; x < b; x += 2 * h) {
+//        I += (func(func_num, x) + 4 * func(func_num, x + h) + func(func_num, x + 2 * h)) * h / 3;
+//    }
+//    return I;
     double I = 0;
-    for (double x = a; x < b; x += 2 * h) {
+    double x = a;
+    while (x + 2 * h <= b) {
         I += (func(func_num, x) + 4 * func(func_num, x + h) + func(func_num, x + 2 * h)) * h / 3;
+        x += 2 * h;
     }
     return I;
 }
@@ -70,17 +93,25 @@ int main() {
             return 1;
     }
 
+    // Вычисление шага
+    double h = (b - a);
+
     // Вычисление интеграла с заданной точностью
     double I_prev = 0, I_cur = method(a, b, eps, func_num);
     int n = 1;
     while (abs(I_cur - I_prev) > eps) {
         I_prev = I_cur;
         n *= 2;
-        I_cur = method(a, b, (b - a) / n, func_num);
+        I_cur = method(a, b, h / n, func_num);
     }
 
     // Вывод результата
     cout << "Значение интеграла: " << I_cur << endl;
+
+    cout << "1 method: " << right_rectangles(a, b, h / n, func_num) << endl;
+    cout << "2 method: " << trapezoids(a, b, h / n, func_num) << endl;
+    cout << "3 method: " << simpson(a, b, h / n, func_num) << endl;
+
 
     return 0;
 }
